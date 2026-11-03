@@ -181,3 +181,81 @@ h1 em, h2 em, h3 em {
   font-weight: 400;
   letter-spacing: 0;
 }
+
+/* CINEMATIC BIRTHDAY TEXT ANIMATION */
+
+.page-hero h1 {
+  animation: titleReveal 1.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.page-hero h1 em {
+  display: inline-block;
+  animation: nameReveal 2s ease both, nameGlow 3s ease-in-out 2s infinite alternate;
+}
+
+.page-hero p {
+  animation: paragraphReveal 1.5s ease 1s both;
+}
+
+.page-hero .eyebrow {
+  animation: paragraphReveal 1.2s ease .4s both;
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(65px);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes nameReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(.85);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes nameGlow {
+  from {
+    text-shadow: 0 0 5px rgba(255,160,210,.2);
+  }
+  to {
+    text-shadow: 0 0 18px rgba(255,160,210,.7),
+                 0 0 35px rgba(255,120,190,.35);
+  }
+}
+
+@keyframes paragraphReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero h1,
+  .page-hero h1 em,
+  .page-hero p,
+  .page-hero .eyebrow {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
