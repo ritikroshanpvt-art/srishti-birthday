@@ -72,3 +72,50 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.shell{p
     transform: none;
   }
 }
+
+/* PREMIUM PHOTO ANIMATIONS */
+.gallery .photo-card {
+  opacity: 0;
+  animation: photoEntrance 1s ease forwards;
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+
+.gallery .photo-card:nth-child(2) { animation-delay: .2s; }
+.gallery .photo-card:nth-child(3) { animation-delay: .4s; }
+.gallery .photo-card:nth-child(4) { animation-delay: .6s; }
+.gallery .photo-card:nth-child(5) { animation-delay: .8s; }
+.gallery .photo-card:nth-child(6) { animation-delay: 1s; }
+
+@keyframes photoEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gallery .photo-card:hover {
+  transform: translateY(-12px) scale(1.035);
+  box-shadow: 0 15px 45px rgba(235, 140, 255, .4);
+  border-color: #f2a8cf;
+  z-index: 5;
+}
+
+.gallery .photo-card img {
+  transition: transform .8s ease, filter .6s ease;
+}
+
+.gallery .photo-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery .photo-card {
+    animation: none;
+    opacity: 1;
+  }
+}
