@@ -337,3 +337,75 @@ h1 em, h2 em, h3 em {
     transform: none;
   }
 }
+
+.love-finale {
+  text-align: center;
+  padding: 65px 10px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.love-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.love-bar {
+  width: 6px;
+  height: 100px;
+  border-radius: 20px;
+  background: linear-gradient(white, #f2a8cf);
+  box-shadow: 0 0 20px #f2a8cf;
+  animation: barGlow 2s infinite alternate;
+}
+
+.love-words {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 800 clamp(38px, 9vw, 75px) 'Manrope', sans-serif;
+  color: white;
+}
+
+.love-i, .love-you {
+  animation: textShow 1.5s both;
+}
+
+.love-you { animation-delay: 1s; }
+
+.love-heart {
+  color: #ff477e;
+  animation: heartbeat 1s infinite;
+  text-shadow: 0 0 25px #ff477e;
+}
+
+.love-name {
+  margin-top: 30px;
+  font: 65px 'Great Vibes', cursive;
+  color: #f2a8cf;
+  animation: nameGlow 2s infinite alternate;
+}
+
+.love-caption {
+  color: #f5d995;
+  letter-spacing: 5px;
+}
+
+@keyframes textShow {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.2); }
+}
+
+@keyframes barGlow {
+  to { box-shadow: 0 0 35px #ff8bc7; }
+}
+
+@keyframes nameGlow {
+  to { text-shadow: 0 0 30px #f2a8cf; }
+}
