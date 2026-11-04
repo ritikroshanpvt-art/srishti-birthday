@@ -10,8 +10,17 @@ async function playMusic(){
 function pauseMusic(){if(!audio)return;audio.pause();sessionStorage.setItem('srishtiMusic','off');setMusicLabel(false);}
 musicButtons.forEach(b=>b.addEventListener('click',()=>audio && !audio.paused?pauseMusic():playMusic()));
 if(audio){audio.addEventListener('play',()=>setMusicLabel(true));audio.addEventListener('pause',()=>setMusicLabel(false));if(sessionStorage.getItem('srishtiMusic')==='on'){playMusic();}}
-const unlock=document.getElementById('unlockBtn'), overlay=document.getElementById('introOverlay');
-if(unlock){unlock.addEventListener('click',()=>{playMusic();if(overlay)overlay.classList.add('hide');document.body.classList.add('unlocked');});}
+
+/* AUTO MUSIC START */
+playMusic();
+
+document.addEventListener('pointerdown', function startMusicOnce() {
+  if (audio && audio.paused) {
+    playMusic();
+  }
+}, { once: true });
+
+
 const countdown=document.getElementById('countdown');
 if(countdown){const target=new Date('2026-11-06T00:00:00');function tick(){let ms=target-new Date();if(ms<0)ms=0;let d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);[['days',d],['hours',h],['minutes',m],['seconds',s]].forEach(([id,v])=>{let el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,'0');});}tick();setInterval(tick,1000);}
 const lightbox=document.getElementById('lightbox');
