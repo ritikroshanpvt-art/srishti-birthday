@@ -490,3 +490,51 @@ h1 em, h2 em, h3 em {
     transform: none;
   }
 }
+
+/* MOBILE RESPONSIVE LOVE FINALE */
+
+.love-finale {
+  width: 100%;
+  max-width: 100%;
+  padding: 45px 8px 30px;
+  box-sizing: border-box;
+}
+
+.love-frame {
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
+}
+
+.love-words {
+  font-size: clamp(27px, 9vw, 75px);
+  gap: clamp(5px, 2vw, 12px);
+  white-space: nowrap;
+}
+
+.love-bar {
+  width: 4px;
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.love-name {
+  font-size: clamp(42px, 12vw, 65px);
+  overflow-wrap: anywhere;
+}
+
+.love-caption {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 380px) {
+  .love-words {
+    font-size: 26px;
+    gap: 5px;
+  }
+
+  .love-bar {
+    height: 60px;
+  }
+}
