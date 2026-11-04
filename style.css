@@ -409,3 +409,84 @@ h1 em, h2 em, h3 em {
 @keyframes nameGlow {
   to { text-shadow: 0 0 30px #f2a8cf; }
 }
+
+/* PREMIUM CHAPTER SECTION ANIMATION */
+
+.section-head {
+  animation: chapterHeading 1.2s ease both;
+}
+
+.section-head h2 {
+  text-shadow: 0 0 25px rgba(242,168,207,.25);
+}
+
+.feature-grid .feature {
+  opacity: 0;
+  animation: chapterCard 1s cubic-bezier(.2,.8,.2,1) forwards;
+  transition: transform .45s ease, box-shadow .45s ease,
+              border-color .45s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-grid .feature:nth-child(1) {
+  animation-delay: .2s;
+}
+.feature-grid .feature:nth-child(2) {
+  animation-delay: .45s;
+}
+.feature-grid .feature:nth-child(3) {
+  animation-delay: .7s;
+}
+
+.feature-grid .feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    110deg, transparent, rgba(255,255,255,.12), transparent
+  );
+  transition: left .8s ease;
+  pointer-events: none;
+}
+
+.feature-grid .feature:hover {
+  transform: translateY(-10px);
+  border-color: #f2a8cf;
+  box-shadow: 0 18px 45px rgba(242,168,207,.2);
+}
+
+.feature-grid .feature:hover::before {
+  left: 150%;
+}
+
+.feature-grid .feature .icon {
+  display: inline-block;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes chapterHeading {
+  from { opacity: 0; transform: translateY(35px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes chapterCard {
+  from { opacity: 0; transform: translateY(55px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-head, .feature-grid .feature, .feature-grid .feature .icon {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
