@@ -64,8 +64,7 @@
 <section class="memory-video">
   <h2>Our Special Memories 🎬</h2>
 
-  <video controls playsinline preload="metadata"
-         poster="memory-1.webp"
+  <video controls playsinline preload="metadata
          style="width:100%;max-width:650px;border-radius:20px;">
 <source src="srishti-video%20(1).mp4" type="video/mp4">  </video>
 </section>
