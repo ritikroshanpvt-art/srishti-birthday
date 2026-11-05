@@ -79,3 +79,28 @@
 <audio id="birthdayAudio" src="inaam.mp3" preload="auto" loop></audio>
 <script src="app.js"></script>
 </body></html>
+<script>
+const memoryVideo = document.querySelector("video");
+const bgMusic = document.querySelector("audio");
+
+let musicWasPlaying = false;
+
+if (memoryVideo && bgMusic) {
+  memoryVideo.addEventListener("play", () => {
+    musicWasPlaying = !bgMusic.paused;
+    bgMusic.pause();
+  });
+
+  memoryVideo.addEventListener("pause", () => {
+    if (musicWasPlaying && !memoryVideo.ended) {
+      bgMusic.play().catch(() => {});
+    }
+  });
+
+  memoryVideo.addEventListener("ended", () => {
+    if (musicWasPlaying) {
+      bgMusic.play().catch(() => {});
+    }
+  });
+}
+</script>
